@@ -19,6 +19,7 @@ from components.transforms import OneHot
 def run(_run, _config, _log):
 
     # check args sanity
+    _config["run_id"] = _run._id
     _config = args_sanity_check(_config, _log)
 
     args = SN(**_config)
@@ -34,8 +35,10 @@ def run(_run, _config, _log):
     _log.info("\n\n" + experiment_params + "\n")
 
     # configure tensorboard logger
-    unique_token = "{}__{}".format(args.name, datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+    unique_token = str(args.run_id)
     args.unique_token = unique_token
+    #unique_token = "{}__{}".format(args.name, datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+    #args.unique_token = unique_token
     if args.use_tensorboard:
         tb_logs_direc = os.path.join(dirname(dirname(abspath(__file__))), "results", "tb_logs")
         tb_exp_direc = os.path.join(tb_logs_direc, "{}").format(unique_token)

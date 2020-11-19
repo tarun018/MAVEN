@@ -1,10 +1,10 @@
 from run_experiment import extend_param_dicts
 
 server_list = [
-    ("gandalf", [1,2,3,4,5,6,7], 2),
+    ("dgx1", [1,2,3,4,5,6,7], 2),
 ]
 
-label = "10step_matrix__bandit_rnn__1ep__15_May_2019"
+label = "maven_trial_2"
 
 config = "noise_qmix_parallel"
 env_config = "nmatrix"
@@ -32,8 +32,7 @@ shared_params = {
     "buffer_cpu_only": True, # 5k buffer is too big for VRAM!
     "buffer_size": 1000,
     "epsilon_finish": 0.01,
-    "epsilon_anneal_time": 100,
-
+    "epsilon_anneal_time": 500,
     "discrim_size": 32,
 }
 
@@ -45,7 +44,7 @@ extend_param_dicts(param_dicts, shared_params,
         "bandit_iters": 100,
         "noise_bandit": [True],
         "rnn_discrim": [True, False],
-        "mi_loss": [0.01, 0.1, 1],
+        "mi_loss": [1],
         # "entropy_scaling": [0.001, 0.01, 0.1]
     },
     repeats=parallel_repeat)

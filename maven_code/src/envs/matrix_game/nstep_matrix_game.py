@@ -62,9 +62,16 @@ class NStepMatrixGame(MultiAgentEnv):
         else:
             raise Exception("Environment not setup to handle {} good branches".format(self.good_branches))
 
-        if self.episode_limit > 1 and self.steps == self.episode_limit - 1 and self.branch == 0:
-            info["good_payoff"] = 1
-            reward = self.final_step_diff[actions[0]][actions[1]]
+        if self.episode_limit > 1 and self.steps == self.episode_limit - 1:
+            if self.branch == 0:
+                info["good_payoff"] = 1
+                reward = self.final_step_diff[actions[0]][actions[1]]
+            elif self.branch == 3:
+                reward = 1
+
+        # if self.episode_limit > 1 and self.steps == self.episode_limit - 1 and self.branch == 0:
+        #     info["good_payoff"] = 1
+        #     reward = self.final_step_diff[actions[0]][actions[1]]
 
         self.steps += 1
 
