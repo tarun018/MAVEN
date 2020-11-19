@@ -84,8 +84,9 @@ class QLearner:
         # Max over target Q-Values
         if self.args.double_q:
             # Get actions that maximise live Q (for double q-learning)
-            mac_out[avail_actions == 0] = -9999999
-            cur_max_actions = mac_out[:, 1:].max(dim=3, keepdim=True)[1]
+            mac_out_detach = mac_out.clone().detach()
+            mac_out_detach[avail_actions == 0] = -9999999
+            cur_max_actions = mac_out_detach[:, 1:].max(dim=3, keepdim=True)[1]
             target_max_qvals = th.gather(target_mac_out, 3, cur_max_actions).squeeze(3)
         else:
             target_max_qvals = target_mac_out.max(dim=3)[0]
@@ -96,8 +97,9 @@ class QLearner:
             target_max_qvals = self.target_mixer(target_max_qvals, batch["state"][:, 1:], noise)
 
         # Discriminator
-        mac_out[avail_actions == 0] = -9999999
-        q_softmax_actions = th.nn.functional.softmax(mac_out[:, :-1], dim=3)
+        mac_out_detach = mac_out.clone().detach()
+        mac_out_detach[avail_actions == 0] = -9999999
+        q_softmax_actions = th.nn.functional.softmax(mac_out_detach[:, :-1], dim=3)
 
         if self.args.hard_qs:
             maxs = th.max(mac_out[:, :-1], dim=3, keepdim=True)[1]
