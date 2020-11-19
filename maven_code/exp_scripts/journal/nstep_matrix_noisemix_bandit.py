@@ -1,7 +1,7 @@
 from run_experiment import extend_param_dicts
 
 server_list = [
-    ("dgx1", [1,2,3,4,5,6,7], 2),
+    ("gollum", [0,1,3,5,6,7], 2),
 ]
 
 label = "maven_trial_2"
@@ -9,15 +9,15 @@ label = "maven_trial_2"
 config = "noise_qmix_parallel"
 env_config = "nmatrix"
 
-n_repeat = 20 # Just incase some die
+n_repeat = 2 # Just incase some die
 
-parallel_repeat = 1
+parallel_repeat = 6
 
 param_dicts = []
 
 shared_params = {
     "t_max": 100 * 1000 + 5 * 1000,
-
+    "local_results_path": "/data/gollum/tarpta/results/",
     "env_args.steps": 10,
     "env_args.good_branches": 2,
 
@@ -43,7 +43,7 @@ extend_param_dicts(param_dicts, shared_params,
         "noise_dim": [16],
         "bandit_iters": 100,
         "noise_bandit": [True],
-        "rnn_discrim": [True, False],
+        "rnn_discrim": [True],
         "mi_loss": [1],
         # "entropy_scaling": [0.001, 0.01, 0.1]
     },

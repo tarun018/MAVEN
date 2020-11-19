@@ -17,7 +17,7 @@ if [ ! -d "pymarl" ]; then
     git clone git@github.com:oxwhirl/pymarl-dev.git
 fi
 
-cd $EXP_DIR/Anuj-MAVEN
+cd $EXP_DIR/MAVEN/maven_code
 
 git fetch -q origin
 git checkout master
