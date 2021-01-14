@@ -152,6 +152,22 @@ map_param_registry = {
         "b_race": "P",
         "unit_type_bits": 0,
         "map_type": 'marines'},
+    "3step": {
+        "n_agents": 2,
+        "n_enemies": 6,
+        "limit": 400,
+        "a_race": "T",
+        "b_race": "P",
+        "unit_type_bits": 0,
+        "map_type": '3step'},
+    "4step": {
+        "n_agents": 2,
+        "n_enemies": 14,
+        "limit": 500,
+        "a_race": "T",
+        "b_race": "P",
+        "unit_type_bits": 0,
+        "map_type": '3step'},
     "micro_corridor": {
         "n_agents": 6,
         "n_enemies": 24,
