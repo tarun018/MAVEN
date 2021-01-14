@@ -39,7 +39,7 @@ shared_params = {
 name = "noisemix"
 extend_param_dicts(param_dicts, shared_params,
     {
-        "env_args.map_name": ["3step", "4step"],
+        "env_args.map_name": ["3step"],
         "name": name,
         "noise_dim": [16],
         #"bandit_iters": 100,
