@@ -6,7 +6,7 @@ server_list = [
 
 label = "maven_maps_original_maven_v1"
 
-config = "noisemix_smac"
+config = "noise_qmix_parallel"
 env_config = "sc2"
 
 n_repeat = 6 # Just incase some die

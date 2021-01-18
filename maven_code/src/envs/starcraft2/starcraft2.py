@@ -560,7 +560,7 @@ class SC2(MultiAgentEnv):
 
     def unit_max_cooldown(self, agent_id):
 
-        if self.map_type in ['marines', 'bunker']:
+        if self.map_type in ['marines', 'bunker', '2step', '3step']:
             return 15
 
         unit = self.get_unit_by_id(agent_id)
