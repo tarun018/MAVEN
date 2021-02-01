@@ -41,7 +41,7 @@ shared_params = {
     "runner_log_interval": 30000,
     "learner_log_interval": 30000,
     "buffer_cpu_only": True,  # 5k buffer is too big for VRAM!
-    "training_iters": 1,
+    # "training_iters": 1,
     "buffer_size": 3000
 }
 name = label + config + "_" + env_config
