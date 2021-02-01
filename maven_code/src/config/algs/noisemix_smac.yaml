@@ -40,5 +40,6 @@ noise_bandit_epsilon: 0.2
 
 target_update_mode: "hard"
 target_update_tau: 0.001
+nn_activation: "relu"
 
 name: "noisemix_smac_parallel"
