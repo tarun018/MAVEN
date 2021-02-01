@@ -38,4 +38,7 @@ noise_bandit: False
 noise_bandit_lr: 0.1
 noise_bandit_epsilon: 0.2
 
+target_update_mode: "hard"
+target_update_tau: 0.001
+
 name: "noisemix_smac_parallel"
