@@ -1,7 +1,8 @@
 from functools import partial
 from .multiagentenv import MultiAgentEnv
 from .matrix_game.nstep_matrix_game import NStepMatrixGame
-from .starcraft2 import StarCraft2Env
+#from .starcraft2 import StarCraft2Env
+from smac.env import MultiAgentEnv, StarCraft2Env
 
 def env_fn(env, **kwargs) -> MultiAgentEnv:
     return env(**kwargs)

@@ -1,7 +1,7 @@
 from run_experiment import extend_param_dicts
 
 server_list = [
-    ("sauron", [2,3,4,5,6,7], 2),
+    ("sauron", [1,2,3,4,5,6,7], 2),
 ]
 
 label = "maven_maps_original_maven_v1"
